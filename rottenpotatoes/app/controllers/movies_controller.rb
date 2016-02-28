@@ -26,9 +26,9 @@ class MoviesController < ApplicationController
     end
     
     if params[:sort] != session[:sort] or params[:ratings] != session[:ratings]
-      session[:sort] = sort
-      session[:ratings] = @selected_ratings
-      redirect_to :sort => sort, :ratings => @selected_ratings and return
+      # session[:sort] = sort
+      # session[:ratings] = @selected_ratings
+      # redirect_to :sort => sort, :ratings => @selected_ratings and return
     end
     @movies = Movie.where(rating: @selected_ratings.keys).order(ordering)
   end
@@ -38,9 +38,9 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.create!(movie_params)
-    flash[:notice] = "#{@movie.title} was successfully created."
-    redirect_to movies_path
+    # @movie = Movie.create!(movie_params)
+    # flash[:notice] = "#{@movie.title} was successfully created."
+    # redirect_to movies_path
   end
 
   def edit
@@ -55,10 +55,10 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
-    @movie.destroy
-    flash[:notice] = "Movie '#{@movie.title}' deleted."
-    redirect_to movies_path
+    # @movie = Movie.find(params[:id])
+    # @movie.destroy
+    # flash[:notice] = "Movie '#{@movie.title}' deleted."
+    # redirect_to movies_path
   end
   
   def search_directors
